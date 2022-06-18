@@ -52,5 +52,32 @@ class SimpleStringCalculatorTest {
         assertEquals(18,sum);
     }
 
+    @Test
+    @DisplayName("should return 0 and should write operation not allowed when numbers = 2,\n3")
+    public void test5(){
+        //given + when
+        int sum = calculatorMock.add("2,\\n3");
+        //then
+        assertEquals(0,sum);
+    }
+
+    @Test
+    @DisplayName("should return 0 and should write operation not allowed when numbers = 2\n,3")
+    public void test6(){
+        //given + when
+        int sum = calculatorMock.add("2\\n,3");
+        //then
+        assertEquals(0,sum);
+    }
+
+    @Test
+    @DisplayName("should return 19 and should write operation not allowed when numbers = 2\n3,3,2\n9")
+    public void test7(){
+        //given + when
+        int sum = calculatorMock.add("2\\n3,3,2\\n9");
+        //then
+        assertEquals(19,sum);
+    }
+
 
 }
