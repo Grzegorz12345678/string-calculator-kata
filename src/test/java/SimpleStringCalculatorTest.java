@@ -43,5 +43,14 @@ class SimpleStringCalculatorTest {
         assertEquals(0,sum);
     }
 
+    @Test
+    @DisplayName("should return 18 when numbers = 2,2,2,2,2,8")
+    public void test4(){
+        //given + when
+        int sum = calculatorMock.add("2,2,2,2,2,8");
+        //then
+        assertEquals(18,sum);
+    }
+
 
 }
