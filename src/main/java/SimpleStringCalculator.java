@@ -6,10 +6,27 @@ public class SimpleStringCalculator {
         int i = 0;
         String number  = "";
         boolean newLine = false;
+        boolean newDelimiter = false;
+        boolean newDelimiter2 = false;
         boolean error = false;
+        char delimiter = ',';
 
         for (Character n: numbers.toCharArray()){
             i++;
+            if (newDelimiter2){
+                delimiter = n;
+                newDelimiter2 = false;
+                continue;
+            }
+            if (n.equals('/')) {
+                if (newDelimiter) {
+                    newDelimiter2 = true;
+                    newDelimiter = false;
+                    continue;
+                }
+                newDelimiter = true;
+                continue;
+            }
             if (n.equals('\\') || newLine){
                 if (n.equals('n')){
                     if (error){
@@ -27,7 +44,7 @@ public class SimpleStringCalculator {
                 newLine = true;
                 continue;
             }
-            if (n.equals(',')){
+            if (n.equals(delimiter)){
                 if (error){
                     System.out.println("operation not allowed");
                     sum = 0;
@@ -44,6 +61,8 @@ public class SimpleStringCalculator {
                 sum += Integer.parseInt(number);
                 break;
             }
+            newDelimiter = false;
+            newLine = false;
         }
         return sum;
     }
