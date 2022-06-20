@@ -59,7 +59,9 @@ public class SimpleStringCalculator {
                         break;
                     }
                     System.out.println();
-                    sum += Integer.parseInt(number);
+                    if (Integer.parseInt(number) < 1000) {
+                        sum += Integer.parseInt(number);
+                    }
                     number  = "";
                     newLine = false;
                     error = true;
@@ -74,7 +76,9 @@ public class SimpleStringCalculator {
                     sum = 0;
                     break;
                 }
-                sum += Integer.parseInt(number);
+                if (Integer.parseInt(number) < 1000) {
+                    sum += Integer.parseInt(number);
+                }
                 number  = "";
                 error = true;
                 continue;
@@ -96,7 +100,9 @@ public class SimpleStringCalculator {
                         throw new NegativesNotAllowedException("negatives not allowed" + negatives);
                     }
                 }
+                if (Integer.parseInt(number) < 1000) {
                     sum += Integer.parseInt(number);
+                }
                 break;
             }
             newDelimiter = false;

@@ -145,5 +145,14 @@ class SimpleStringCalculatorTest {
         assertEquals("negatives not allowed[-3, -3, -6, -6, -8]",exception.getMessage());
     }
 
+    @Test
+    @DisplayName("should return 18 when numbers = 2,2,2,2,2,8")
+    public void test14() throws NegativesNotAllowedException {
+        //given + when
+        int sum = calculatorMock.add("20,12,1234,10,50,2222");
+        //then
+        assertEquals(92,sum);
+    }
+
 
 }
