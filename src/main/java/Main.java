@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NegativesNotAllowedException {
 
         Scanner scanner = new Scanner(System.in);
         String numbers = scanner.nextLine();
